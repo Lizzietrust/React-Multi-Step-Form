@@ -1,38 +1,113 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  background-color: rgb(248, 9, 248);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.form {
+  width: 65%;
+  background-color: #fff;
+  height: 30rem;
+  margin: 5rem auto;
+  border-radius: 1rem;
   display: flex;
-  flex-direction: column;
+  align-items: center;
+}
+
+.sidebar {
+  background-color: rgb(214, 117, 32);
+  height: 28rem;
+  width: 30%;
+  margin-left: 1rem;
+  border-radius: .8rem;
+  padding: 2rem;
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.number {
+  height: 2rem;
+  width: 2rem;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  color: #fff;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  font-weight: 500;
+  margin-right: 1rem;
 }
 
-.App-link {
-  color: #61dafb;
+.number.curr {
+  background-color: rgb(248, 9, 248);
+  border: none;
+  color: rgb(241, 198, 206);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.step span {
+  color: rgb(248, 9, 248);
+  font-size: .7rem;
+}
+
+.step p {
+  color: #fff;
+  font-weight: 500;
+  margin-top: 0;
+}
+
+.form-container {
+  width: 58%;
+  margin-left: 6rem;
+}
+
+.header h1 {
+  margin-bottom: 4rem;
+}
+
+.body > div input{
+  display: block;
+  width: 85%;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  border-radius: .5rem;
+  outline: none;
+  border: 1px solid rgb(233, 152, 167);
+}
+
+.body > div input::placeholder {
+  color: rgb(233, 152, 167);
+}
+
+.footer {
+  margin-top: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 85%;
+}
+
+.footer button {
+  border: none;
+  cursor: pointer;
+  background-color: rgb(233, 152, 167);
+  color: #fff;
+  width: 5rem;
+  height: 2rem;
+  border-radius: .3rem;
+}
+
+.footer button:hover {
+  background-color: transparent;
+  color: rgb(233, 152, 167);
+  border: 1px solid rgb(233, 152, 167);
+}
+
+.footer button:disabled {
+  background-color: transparent;
 }
