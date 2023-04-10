@@ -70,7 +70,7 @@ body {
   margin-bottom: 4rem;
 }
 
-.body > div input{
+.body > form input{
   display: block;
   width: 85%;
   margin-bottom: 2rem;
@@ -80,19 +80,19 @@ body {
   border: 1px solid rgb(233, 152, 167);
 }
 
-.body > div input::placeholder {
+.body > form input::placeholder {
   color: rgb(233, 152, 167);
 }
 
 .footer {
-  margin-top: 5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 85%;
 }
 
-.footer button {
+button {
+  margin-top: 5rem;
   border: none;
   cursor: pointer;
   background-color: rgb(233, 152, 167);
@@ -102,12 +102,38 @@ body {
   border-radius: .3rem;
 }
 
-.footer button:hover {
+button:hover {
   background-color: transparent;
   color: rgb(233, 152, 167);
   border: 1px solid rgb(233, 152, 167);
 }
 
-.footer button:disabled {
-  background-color: transparent;
+.card-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.card {
+  padding: 2rem;
+  border-radius: .8rem;
+  width: 40%;
+  background-color: #fff;
+}
+
+.card h1 {
+  text-align: center;
+}
+
+.card > div {
+  display: flex;
+  align-items: center;
+  margin-left: 5rem;
+}
+
+.card > div span {
+  font-weight: 700;
+  width: 10rem;
+  text-align: center;
 }

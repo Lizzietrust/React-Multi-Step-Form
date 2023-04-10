@@ -2,9 +2,12 @@ import React, { useState } from 'react'
 import MoreInfo from './MoreInfo';
 import PersonalInfo from './PersonalInfo';
 import SignUpInfo from './SignUpInfo';
+import Final from './Final';
 
 const Form = () => {
-    const [page, setPage] = useState(0);
+
+    const [page, setPage] = useState(1);
+
     const [formData, setFormData] = useState({
         email: "",
         password: "",
@@ -16,7 +19,26 @@ const Form = () => {
         gender: "",
     });
 
-    const titles = ['Sign Up', 'Personal Info', 'More Info'];
+    const nextPage = () => {
+        setPage(page + 1);
+    };
+
+    const prevPage = () => {
+        setPage(page - 1);
+    };
+
+    const handleInputData = input => e => {
+        // input value from the form
+        const {value } = e.target;
+    
+        //updating for data state taking previous state and then adding new value to create new object
+        setFormData(prevState => ({
+          ...prevState,
+          [input]: value
+      }));
+      }
+
+    /*const titles = ['Sign Up', 'Personal Info', 'More Info'];
 
     const DisplayPage = () => {
         if (page === 0) {
@@ -28,57 +50,151 @@ const Form = () => {
         else {
             return <MoreInfo formData={formData} setFormData={setFormData}/>;
         }
-    };
+    };*/
 
-  return (
-    <div className='form'>
-      <div className="sidebar">
-        <div className="list">
-            <div className={page === 0 ? 'number curr' : 'number'}>1</div>
-            <div className="step">
-                <span>FIRST STEP</span>
-                <p>SIGN UP</p>
-            </div>
-        </div>
-        <div className="list">
-            <div className={page === 1 ? 'number curr' : 'number'}>2</div>
-            <div className="step">
-                <span>SECOND STEP</span>
-                <p>YOUR INFO</p>
-            </div>
-        </div>
-        <div className="list">
-            <div className={page === 2 ? 'number curr' : 'number'}>3</div>
-            <div className="step">
-                <span>THIRD STEP</span>
-                <p>MORE INFO</p>
-            </div>
-        </div>
-      </div>
-      <div className="form-container">
-        <div className="header"><h1>{titles[page]}</h1></div>
-        <div className="body">{DisplayPage()}</div>
-        <div className="footer">
-            <button 
-                disabled={page == 0}
-                onClick={() => {
-                setPage((currPage) => currPage - 1);
-            }}
-            >Prev</button>
-            <button 
-                onClick={() => {
-                    if (page === titles.length - 1) {
-                      alert("FORM SUBMITTED");
-                      console.log(formData);
-                    } else {
-                      setPage((currPage) => currPage + 1);
-                    }
-                  }}>
-                  {page === titles.length - 1 ? "Submit" : "Next"}</button>
-        </div>
-      </div>
-    </div>
-  )
+  
+    switch (page) {
+        case 1:
+            return (
+                <div className="form">
+                    <div className="sidebar">
+                        <div className="list">
+                            <div className='number curr'>1</div>
+                            <div className="step">
+                                <span>FIRST STEP</span>
+                                <p>SIGN UP</p>
+                            </div>
+                        </div>
+                        <div className="list">
+                            <div className='number'>2</div>
+                            <div className="step">
+                                <span>SECOND STEP</span>
+                                <p>YOUR INFO</p>
+                            </div>
+                        </div>
+                        <div className="list">
+                            <div className='number'>3</div>
+                            <div className="step">
+                                <span>THIRD STEP</span>
+                                <p>MORE INFO</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="form-container">
+                        <div className="body">
+                            <SignUpInfo nextPage={nextPage} handleFormData={handleInputData} values={formData}/>
+                        </div>
+                    </div>
+                </div>
+            );
+
+        case 2:
+            return (
+                <div className="form">
+                    <div className="sidebar">
+                        <div className="list">
+                            <div className='number'>1</div>
+                            <div className="step">
+                                <span>FIRST STEP</span>
+                                <p>SIGN UP</p>
+                            </div>
+                        </div>
+                        <div className="list">
+                            <div className='number curr'>2</div>
+                            <div className="step">
+                                <span>SECOND STEP</span>
+                                <p>YOUR INFO</p>
+                            </div>
+                        </div>
+                        <div className="list">
+                            <div className='number'>3</div>
+                            <div className="step">
+                                <span>THIRD STEP</span>
+                                <p>MORE INFO</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="form-container">
+                        <div className="body">
+                            <PersonalInfo nextPage={nextPage} prevPage={prevPage} handleFormData={handleInputData} values={formData}/>
+                        </div>
+                    </div>
+                </div>
+            );
+
+        case 3:
+            return (
+                <div className="form">
+                    <div className="sidebar">
+                        <div className="list">
+                            <div className='number'>1</div>
+                            <div className="step">
+                                <span>FIRST STEP</span>
+                                <p>SIGN UP</p>
+                            </div>
+                        </div>
+                        <div className="list">
+                            <div className='number'>2</div>
+                            <div className="step">
+                                <span>SECOND STEP</span>
+                                <p>YOUR INFO</p>
+                            </div>
+                        </div>
+                        <div className="list">
+                            <div className='number curr'>3</div>
+                            <div className="step">
+                                <span>THIRD STEP</span>
+                                <p>MORE INFO</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="form-container">
+                        <div className="body">
+                            <MoreInfo nextPage={nextPage} prevPage={prevPage} handleFormData={handleInputData} values={formData}/>
+                        </div>
+                    </div>
+                </div>
+            );
+
+        case 4:
+            return (
+                <Final values={formData}/>
+            );
+        
+        default:
+            return (
+                <div className="form">
+                    <div className="sidebar">
+                        <div className="list">
+                            <div className='number curr'>1</div>
+                            <div className="step">
+                                <span>FIRST STEP</span>
+                                <p>SIGN UP</p>
+                            </div>
+                        </div>
+                        <div className="list">
+                            <div className='number'>2</div>
+                            <div className="step">
+                                <span>SECOND STEP</span>
+                                <p>YOUR INFO</p>
+                            </div>
+                        </div>
+                        <div className="list">
+                            <div className='number'>3</div>
+                            <div className="step">
+                                <span>THIRD STEP</span>
+                                <p>MORE INFO</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="form-container">
+                        <div className="body">
+                            <SignUpInfo nextPage={nextPage} handleFormData={handleInputData} values={formData}/>
+                        </div>
+                    </div>
+                </div>
+            );
+    }
 }
 
 export default Form

@@ -1,20 +1,65 @@
-import React from 'react'
+import React, {useState} from 'react';
+import validator from "validator";
 
-const SignUpInfo = ({formData, setFormData}) => {
+const SignUpInfo = ({nextPage, handleFormData, values}) => {
+
+    const [error, setError] = useState(false);
+
+    const submitFormData = (e) => {
+        e.preventDefault();
+
+        if (
+            validator.isEmpty(values.email) ||
+            validator.isEmpty(values.password) ||
+            validator.isEmpty(values.confirmPassword)
+          ) {
+            setError(true);
+          } else {
+            nextPage();
+          }
+    }
+
   return (
-    <div className='sign-up'>
-      <input type="text" placeholder='Email...' value={formData.email} 
-      onChange={(event) => setFormData({...formData, email:event.target.value})}
-      />
-      <input type="text" placeholder='Password...' value={formData.password}
-      onChange={(event) =>
-        setFormData({ ...formData, password: event.target.value })
-      }/>
-      <input type="text" placeholder='Confirm Password...' value={formData.confirmPassword}
-      onChange={(event) =>
-        setFormData({ ...formData, confirmPassword: event.target.value })
-      }/>
-    </div>
+    <form className='sign-up' onSubmit={submitFormData}>
+        <div className="input">
+            <input type="text" name='email' defaultValue={values.email} placeholder='Email...' 
+            onChange={handleFormData("email")}
+            />
+            {error ? (
+                <div style={{ color: "red" }}>
+                    This is a required field
+                </div>
+            ) : (
+                ""
+            )}
+        </div>
+        <div className="input">
+            <input type="text" name='password' defaultValue={values.password} placeholder='Password...' 
+            onChange={handleFormData("password")}
+            />
+            {error ? (
+                <div style={{ color: "red" }}>
+                    This is a required field
+                </div>
+            ) : (
+                ""
+            )}
+        </div>
+        <div className="input">
+            <input type="text" name='confirmPassword' defaultValue={values.confirmPassword} placeholder='Confirm Password...' 
+            onChange={handleFormData("confirmPassword")}/>
+            {error ? (
+                <div style={{ color: "red" }}>
+                    This is a required field
+                </div>
+            ) : (
+                ""
+            )}
+        </div>
+        <button type="submit">
+              Next
+        </button>
+    </form>
   )
 }
 
