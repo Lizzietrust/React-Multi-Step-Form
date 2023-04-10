@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/React-Multi-Step-Form/static/css/main.891cf312.css",
-    "main.js": "/React-Multi-Step-Form/static/js/main.89e43c61.js",
+    "main.css": "/React-Multi-Step-Form/static/css/main.7ad284f0.css",
+    "main.js": "/React-Multi-Step-Form/static/js/main.bcb85404.js",
     "static/js/787.bf36a60c.chunk.js": "/React-Multi-Step-Form/static/js/787.bf36a60c.chunk.js",
     "index.html": "/React-Multi-Step-Form/index.html",
-    "main.891cf312.css.map": "/React-Multi-Step-Form/static/css/main.891cf312.css.map",
-    "main.89e43c61.js.map": "/React-Multi-Step-Form/static/js/main.89e43c61.js.map",
+    "main.7ad284f0.css.map": "/React-Multi-Step-Form/static/css/main.7ad284f0.css.map",
+    "main.bcb85404.js.map": "/React-Multi-Step-Form/static/js/main.bcb85404.js.map",
     "787.bf36a60c.chunk.js.map": "/React-Multi-Step-Form/static/js/787.bf36a60c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.891cf312.css",
-    "static/js/main.89e43c61.js"
+    "static/css/main.7ad284f0.css",
+    "static/js/main.bcb85404.js"
   ]
 }
